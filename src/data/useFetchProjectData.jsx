@@ -1,28 +1,16 @@
 import { useMemo, useState, useEffect } from "react";
-import { Octokit } from "octokit";
 
 const useFetchProjectData = () => {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-        const octokit = new Octokit({
-            auth: "",
-        })
 
         async function fetchProjects() {
             try {
-                const response = await octokit.request("GET /repos/{owner}/{repo}/contents/{path}?ref={branch}", {
-                    owner: "gt-ospo",
-                    repo: "oss-project-explorer-data",
-                    path: "project_list.json",
-                    branch: "json-form-test"
-                })
-
-                const content = atob(response.data.content)
-                const projects = JSON.parse(content)
+                const response = await fetch("https://raw.githubusercontent.com/gt-ospo/oss-project-explorer-data/json-form-test/project_list.json");
+                const projects = await response.json()
 
                 setProjects(projects);
-
             } catch (error) {
                 console.error("Something went wrong while fetching the projects...", error);
             }
