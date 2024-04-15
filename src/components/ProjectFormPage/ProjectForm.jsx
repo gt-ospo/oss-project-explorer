@@ -4,6 +4,7 @@ import Select from 'react-select';
 import { Octokit } from "octokit";
 import projectAreaOptions from "../../data/projectAreaOptions";
 import licenseOptions from "../../data/licenseOptions";
+import useFetchProjectData from "../../data/useFetchProjectData";
 
 const ProjectForm = forwardRef((props, ref) => {
   const [formData, setFormData] = useState({
@@ -93,72 +94,107 @@ const ProjectForm = forwardRef((props, ref) => {
     return allFieldsValid;
   };
 
+  // 1. Get form JSON data 
+  // 2. Either get whole project JSON list and append new project 
+  //    OR Find a way to add new project without fetching whole project list
+  
+  // 3. Call Public Action Trigger which triggers the Github Action workflow file (see if response message exists)
+  // 4. Read response and write appropriate result message
+
+  var data = useFetchProjectData();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const isFormValid = validateAllFields();
     
     if (isFormValid && !isSubmitting) {
-      setSuccessMessage("Loading please wait...")
-      setIsSubmitting(true)
+      setSuccessMessage("Loading please wait...");
+      setIsSubmitting(true);
 
-      const octokit = new Octokit({
-        auth: "",
-      })
+      data.push(formData);
 
-      // Get File SHA and contents
-      const response1 = await octokit.request("GET /repos/{owner}/{repo}/contents/{path}?ref=json-form-test", {
-        owner: "gt-ospo",
-        repo: "oss-project-explorer-data",
-        path: "project_list.json"
-      })
+      const response = await fetch("https://publicactiontrigger.azurewebsites.net/api/dispatches/gt-ospo/oss-project-explorer", {
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify({ event_type: "update-json-event", client_payload: { data: JSON.stringify(data, null, 2) } })
+      });
 
-      let sha = null
-      var fileContent = []
-
-      if (response1.status === 200) {
-        sha = response1.data["sha"]
-        fileContent = JSON.parse(atob(response1.data.content))
-      }
-
-      // Turn new file contents to base 64 encoding
-      fileContent.push(formData)
-      fileContent = JSON.stringify(fileContent, null, 2)
-      fileContent = btoa(fileContent)
-
-      // Update or create new file in repo
-      try {
-        if (response1.status === 200) {
-          await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
-            owner: "gt-ospo",
-            repo: "open-source-project-explorer",
-            path: "project_list.json",
-            message: "Inserted new project to project list file",
-            content: fileContent,
-            sha: sha,
-            branch: "json-form-test"
-          })
-        } else {
-          await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
-            owner: "gt-ospo",
-            repo: "open-source-project-explorer",
-            path: "project_list.json",
-            message: "Created project list file and added new project",
-            content: fileContent,
-            branch: "json-form-test"
-          })
-        }
-
+      if (response.status == 200) {
         setSuccessMessage("Thank you for submitting your project. Your submission will be reviewed via Github PR, and we will notify you once your project is approved to be added.");
-      } catch (error) {
-        console.log(error)
+      } else {
+        console.log(response);
         setSuccessMessage("Something went wrong...please try again.");
-      } finally {
-        setIsSubmitting(false)
       }
-    } else {
-      setSuccessMessage("");
+      
+      setIsSubmitting(false);
     }
   };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const isFormValid = validateAllFields();
+    
+  //   if (isFormValid && !isSubmitting) {
+  //     setSuccessMessage("Loading please wait...")
+  //     setIsSubmitting(true)
+
+  //     const octokit = new Octokit({
+  //       auth: "",
+  //     })
+
+  //     // Get File SHA and contents
+  //     const response1 = await octokit.request("GET /repos/{owner}/{repo}/contents/{path}?ref=json-form-test", {
+  //       owner: "gt-ospo",
+  //       repo: "oss-project-explorer-data",
+  //       path: "project_list.json"
+  //     })
+
+  //     let sha = null
+  //     var fileContent = []
+
+  //     if (response1.status === 200) {
+  //       sha = response1.data["sha"]
+  //       fileContent = JSON.parse(atob(response1.data.content))
+  //     }
+
+  //     // Turn new file contents to base 64 encoding
+  //     fileContent.push(formData)
+  //     fileContent = JSON.stringify(fileContent, null, 2)
+  //     fileContent = btoa(fileContent)
+
+  //     // Update or create new file in repo
+  //     try {
+  //       if (response1.status === 200) {
+  //         await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
+  //           owner: "gt-ospo",
+  //           repo: "open-source-project-explorer",
+  //           path: "project_list.json",
+  //           message: "Inserted new project to project list file",
+  //           content: fileContent,
+  //           sha: sha,
+  //           branch: "json-form-test"
+  //         })
+  //       } else {
+  //         await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
+  //           owner: "gt-ospo",
+  //           repo: "open-source-project-explorer",
+  //           path: "project_list.json",
+  //           message: "Created project list file and added new project",
+  //           content: fileContent,
+  //           branch: "json-form-test"
+  //         })
+  //       }
+
+  //       setSuccessMessage("Thank you for submitting your project. Your submission will be reviewed via Github PR, and we will notify you once your project is approved to be added.");
+  //     } catch (error) {
+  //       console.log(error)
+  //       setSuccessMessage("Something went wrong...please try again.");
+  //     } finally {
+  //       setIsSubmitting(false)
+  //     }
+  //   } else {
+  //     setSuccessMessage("");
+  //   }
+  // };
 
   return (
     <div ref={ref} className="isolate bg-white px-6 py-12 sm:py-12 lg:px-8">

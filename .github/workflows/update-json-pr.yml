@@ -1,0 +1,38 @@
+name: Add New Project to JSON and Create Pull Request
+
+on:
+  repository_dispatch:
+    types: [update-json-event]
+
+jobs:
+  update-json:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Data Repository
+      uses: actions/checkout@v2
+      with:
+        repository: 'gt-ospo/oss-project-explorer-data'
+        ref: 'json-form-test'
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
+
+    - name: Update JSON File
+      run: |
+        echo '${{ github.event.client_payload.data }}' > project_list.json
+      shell: bash
+
+    - name: Commit and Push Changes
+      run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+        git add .
+        git commit -m "Add new project to project_list.json"
+        git push
+
+    - name: Create Pull Request
+      uses: repo-sync/pull-request@v2
+      with:
+        github_token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        source_branch: 'json-form-test'
+        destination_branch: 'main'
+        pr_title: 'Add new project to project_list.json'
+        pr_body: 'Automatically generated PR to add new project to project_list.json'
