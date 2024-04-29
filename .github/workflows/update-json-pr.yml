@@ -13,11 +13,11 @@ jobs:
       with:
         repository: 'gt-ospo/oss-project-explorer-data'
         ref: 'json-form-test'
-        token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        token: ${{ secrets.OSPO_EXPLORER_TOKEN }}
 
     - name: Update JSON File
       run: |
-        echo '${{ github.event.client_payload.data }}' > project_list.json
+        echo '${{ toJson(github.event.client_payload.data) }}' > project_list.json
       shell: bash
 
     - name: Commit and Push Changes
@@ -31,7 +31,7 @@ jobs:
     - name: Create Pull Request
       uses: repo-sync/pull-request@v2
       with:
-        github_token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        github_token: ${{ secrets.OSPO_EXPLORER_TOKEN }}
         source_branch: 'json-form-test'
         destination_branch: 'main'
         pr_title: 'Add new project to project_list.json'
