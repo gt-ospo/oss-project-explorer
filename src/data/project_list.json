@@ -1,1 +1,68 @@
-
+[
+    {
+      "projectName": "Tech-Matrix",
+      "projectAbstract": "Innovating at the confluence of HCI, Robotics, AI , focusing on to address critical challenges.",
+      "projectAreas": [
+        "CS",
+        "Robotics",
+        "AI",
+        "HCI"
+      ],
+      "licenses": [
+        "ISC"
+      ],
+      "contacts": [
+        {
+          "name": "Jamie Johnson",
+          "email": "jjohnson@example.net"
+        }
+      ],
+      "projectUrl": "http://dcavmq-future.com/",
+      "guidelinesUrl": "http://gyqnkouvp-innova.com/"
+    },
+    {
+      "projectName": "Quantum-Hub",
+      "projectAbstract": "Innovating at the confluence of Graphics, HPC, AI, Bioscience while emphasizing to address critical challenges.",
+      "projectAreas": [
+        "Graphics",
+        "Bioscience",
+        "HPC",
+        "AI"
+      ],
+      "licenses": [
+        "Apache",
+        "MIT"
+      ],
+      "contacts": [
+        {
+          "name": "Quinn Miller",
+          "email": "qmiller@example.net"
+        }
+      ],
+      "projectUrl": "http://emdhssobtx-tech.com/",
+      "guidelinesUrl": "http://fnvkoh-tech.com/"
+    },
+    {
+      "projectName": "Neural-Forge",
+      "projectAbstract": "Exploring the intersection of Bioscience with a strong emphasis on to address critical challenges.",
+      "projectAreas": [
+        "Bioscience",
+        "HCI"
+      ],
+      "licenses": [
+        "BSD-3"
+      ],
+      "contacts": [
+        {
+          "name": "Morgan Jones",
+          "email": "mjones@example.com"
+        },
+        {
+          "name": "Riley Davis",
+          "email": "rdavis@example.org"
+        }
+      ],
+      "projectUrl": "http://crawr-data.com/",
+      "guidelinesUrl": "http://qgeyxf-data.com/"
+    }
+]
