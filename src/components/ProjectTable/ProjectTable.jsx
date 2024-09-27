@@ -123,7 +123,7 @@ const ProjectTable = ({ columnFilters, showForm, onShowForm }) => {
                                                         {row.original.contacts.map((contact, index) => {
                                                             return (
                                                                 <li className="mb-2 break-all">
-                                                                    {index + 1}. {contact.name} ({contact.email})
+                                                                    {index + 1}. {contact.name} {contact.email && `(${contact.email})`}
                                                                 </li>
                                                             )
                                                         })}
@@ -131,9 +131,11 @@ const ProjectTable = ({ columnFilters, showForm, onShowForm }) => {
                                                 </div>
 
                                                 <div className="w-1/3">
-                                                    <h3 className="text-center mb-2 font-semibold">URLs</h3>
+                                                    <h3 className="text-center mb-2 font-semibold">URL(s)</h3>
                                                     <p className="font-medium">Project URL: <a href={row.original.projectUrl} className="font-normal break-all">{row.original.projectUrl}</a></p>
-                                                    <p className="font-medium">Guidelines URL: <a href={row.original.guidelinesUrl} className="font-normal break-all">{row.original.guidelinesUrl}</a></p>
+                                                    {row.original.guidelinesUrl && (
+                                                        <p className="font-medium">Guidelines URL: <a href={row.original.guidelinesUrl} className="font-normal break-all">{row.original.guidelinesUrl}</a></p>
+                                                    )}
                                                 </div>
                                             </div>
                                         </td>
