@@ -1,24 +1,6 @@
 [
   {
     "projectName": "Spatter",
-    "projectAbstract": "Spatter is a benchmark",
-    "projectAreas": [
-      "HPC"
-    ],
-    "licenses": [
-      "MIT"
-    ],
-    "contacts": [
-      {
-        "name": "Jeff Young",
-        "email": "jyoung9@gatech.edu"
-      }
-    ],
-    "projectUrl": "https://github.com/hpcgarage/spatter/",
-    "guidelinesUrl": "https://github.com/hpcgarage/spatter/"
-  },
-  {
-    "projectName": "Spatter",
     "projectAbstract": "Spatter is a memory system benchmarking tool that allows for multi-platform (CPU, GPU) testing of sparse memory accesses commonly found in HPC and AI applications. Recent developments by Los Alamos National Lab and Georgia Tech have enabled further tools to analyze applications and extract patterns to be used as inputs to Spatter.",
     "projectAreas": [
       "HPC"
