@@ -38,5 +38,23 @@
     ],
     "projectUrl": "https://github.com/hpcgarage/spatter",
     "guidelinesUrl": "https://github.com/hpcgarage/spatter/blob/main/CONTRIBUTING.md"
+  },
+  {
+    "projectName": "MFC",
+    "projectAbstract": "MFC is a computational fluid dynamics solver used to solve problems in health, energy, and defense. It incorporates several physical phenomenologies. Focus is paid to performance, with kernels optimized to GPU devices and algorithms tailored so the solver scales to 100% of GPU-based exascale machines like OLCF Frontier.",
+    "projectAreas": [
+      "HPC"
+    ],
+    "licenses": [
+      "MIT"
+    ],
+    "contacts": [
+      {
+        "name": "Spencer Bryngelson",
+        "email": "shb@gatech.edu"
+      }
+    ],
+    "projectUrl": "https://mflowcode.github.io",
+    "guidelinesUrl": "https://mflowcode.github.io"
   }
 ]
