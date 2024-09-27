@@ -62,12 +62,12 @@ const ProjectForm = forwardRef((props, ref) => {
     newErrors.projectAbstract = formData.projectAbstract ? '' : 'Please enter an abstract on the project';
     
     newErrors.projectUrl = formData.projectUrl ? (isUrl(formData.projectUrl) ? '' : 'URL is not in a valid format') : 'Please enter a URL to the project page';
-    newErrors.guidelinesUrl = formData.guidelinesUrl ? (isUrl(formData.guidelinesUrl) ? '' : 'URL is not in a valid format') : 'Please enter a URL to the project contribution guidelines';
+    newErrors.guidelinesUrl = formData.guidelinesUrl ? (isUrl(formData.guidelinesUrl) ? '' : 'URL is not in a valid format') : '';
     
     newErrors.contacts = formData.contacts.map(contact => {
       let contactError = {};
       contactError.name = contact.name ? '' : 'Please enter a name';
-      contactError.email = contact.email ? (emailRegex.test(contact.email) ? '' : 'Contact email is not in valid email format') : 'Please enter an email';
+      contactError.email = contact.email ? (emailRegex.test(contact.email) ? '' : 'Contact email is not in valid email format') : '';
       return contactError;
     });
 
@@ -206,7 +206,7 @@ const ProjectForm = forwardRef((props, ref) => {
 
           <div className="sm:col-span-2">
             <label htmlFor="projectName" className="block font-semibold leading-6 text-gtblack">
-              Project Name
+              Project Name <span className="text-red-500">*</span>
             </label>
 
             <div className="mt-2.5">
@@ -227,7 +227,7 @@ const ProjectForm = forwardRef((props, ref) => {
 
           <div className="sm:col-span-2">
             <label htmlFor="projectAbstract" className="block font-semibold leading-6 text-gtblack">
-              Project Abstract
+              Project Abstract <span className="text-red-500">*</span>
             </label>
 
             <div className="mt-2.5">
@@ -247,7 +247,7 @@ const ProjectForm = forwardRef((props, ref) => {
 
           <div className="sm:col-span-2">
             <label htmlFor="projectAreas" className="block font-semibold leading-6 text-gtblack">
-              Project Areas
+              Project Areas <span className="text-red-500">*</span>
             </label>
 
             <Select 
@@ -275,7 +275,7 @@ const ProjectForm = forwardRef((props, ref) => {
 
           <div className="sm:col-span-2">
             <label htmlFor="projectLicenses" className="block font-semibold leading-6 text-gtblack">
-              Project Licenses
+              Project Licenses <span className="text-red-500">*</span>
             </label>
 
             <Select 
@@ -292,11 +292,11 @@ const ProjectForm = forwardRef((props, ref) => {
 
           <div className="sm:col-span-2 grid grid-cols-1 gap-y-4">
             <label className="block font-semibold leading-6 text-gtblack">
-              Primary Contact(s)
+              Primary Contact(s) <span className="text-red-500">*</span>
             </label>
 
             {formData.contacts.map((contact, index) => (
-              <div key={index} className="grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
+              <div key={index} className="grid grid-cols-1 gap-x-8 sm:grid-cols-2">
                 
                 <div className="col-span-2 flex items-center">
                   <div className="block text-sm font-semibold leading-6 text-gtblack">Contact {index + 1}</div>
@@ -314,6 +314,9 @@ const ProjectForm = forwardRef((props, ref) => {
                 </div>
 
                 <div>
+                  <label className="block font-semibold text-xs leading-6 text-gtblack">
+                    Name <span className="text-red-500">*</span>
+                  </label>
                   <input
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gtblack shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-indigo-600 sm:text-sm"
                     type="text" 
@@ -326,6 +329,9 @@ const ProjectForm = forwardRef((props, ref) => {
                 </div>
 
                 <div>
+                  <label className="block font-semibold text-xs leading-6 text-gtblack">
+                    Email
+                  </label>
                   <input
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gtblack shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-indigo-600 sm:text-sm"
                     type="text" 
@@ -360,7 +366,7 @@ const ProjectForm = forwardRef((props, ref) => {
 
           <div className="sm:col-span-2">
             <label htmlFor="projectUrl" className="block font-semibold leading-6 text-gtblack">
-              Project Page URL
+              Project Page URL <span className="text-red-500">*</span>
             </label>
 
             <div className="relative mt-2.5">
