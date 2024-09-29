@@ -38,5 +38,27 @@
     ],
     "projectUrl": "https://mflowcode.github.io",
     "guidelinesUrl": "https://mflowcode.github.io"
+  },
+  {
+    "projectName": "QCManyBody",
+    "projectAbstract": "Intermolecular many-body expansion with QCArchive integration",
+    "projectAreas": [
+      "Other"
+    ],
+    "licenses": [
+      "BSD-3-Clause"
+    ],
+    "contacts": [
+      {
+        "name": "Lori A. Burns",
+        "email": "lori.burns@gmail.com"
+      },
+      {
+        "name": "C. David Sherrill",
+        "email": "sherrill@gatech.edu"
+      }
+    ],
+    "projectUrl": "https://github.com/MolSSI/QCManyBody",
+    "guidelinesUrl": ""
   }
 ]
