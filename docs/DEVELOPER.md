@@ -111,15 +111,22 @@ GitHub provides good guidance on [creating shared bots and services at this page
 
 ### 5.2 Setting up Fine-grained Access Tokens
 
-GitHub now allows for fine-grained access tokens to perform automated roles for a repository. Read more about fine-grained PAT [at this link](https://github.blog/security/application-security/introducing-fine-grained-personal-access-tokens-for-github/). Once you have set up the bot account, you can go under `Settings -> Developer Settings -> Personal access tokens -> Fine-grained tokens` to set up your new `"OSPO_EXPLORER_TOKEN"`. The steps for this are as follows:
+GitHub now allows for fine-grained access tokens to perform automated roles for a repository. Read more about fine-grained PAT [at this link](https://github.blog/security/application-security/introducing-fine-grained-personal-access-tokens-for-github/). 
+
+Once you have set up the bot account, you can go under `Settings -> Developer Settings -> Personal access tokens -> Fine-grained tokens` to set up your new `"OSPO_EXPLORER_TOKEN"`. The steps for this are as follows:
 
 1) Check that your organization or hosting repo allows fine-grained access tokens. 
-2) Go to your helper user's `Fine-grained tokens` page and 'Generate New Token`
-3) Enter in the name of your token and select the expiration date. Tokens can last up to 1 year, but we suggest selecting 30 days as a test.
-4) Give access for this token *only* to the oss-project-explorer repo under whichever hosting organization you use.
+2) Go to your helper user's `Fine-grained tokens` page and `Generate New Token`
+3) Enter in the name of your token and select the expiration date. Tokens can last up to 1 year, but we suggest selecting 30 days for testing.
+
+![OSS EXPLORER TOKEN PAT 1](fig/oss_project_explorer_pat_1.JPG)
+4) Give access for this token **only** to the oss-project-explorer repo under whichever hosting organization you use.
+
+![OSS EXPLORER TOKEN PAT 2](fig/oss_project_explorer_pat_2.JPG)
 5) Go to `Repository Access` and select permissions for this specific repository using the `Only select repositories` dropdown.
     * We have found that you only need to enable `read-only` access for **Metadata** and `Read and write` access for **Pull Requests** under `Repository permissions`.
 6)  Once you have selected this repository and these two permissions, you can select the `Generate token and request access` button.
+![OSS EXPLORER TOKEN PAT 3](fig/oss_project_explorer_pat_3.JPG)
 7)  Copy your new PAT and add it as a GitHub secret under your version of the oss-project-explorer repository. 
 
 **IMPORTANT NOTE**: Your newly generated PAT will only show once when you generate it. Save it in a safe location for usage as a GitHub Secret with the oss-project-explorer repository.
@@ -129,6 +136,8 @@ GitHub now allows for fine-grained access tokens to perform automated roles for 
 You should receive an email notice if your token is about to expire. Using your helper bot account, you can go under `Settings -> Developer Settings -> Personal access tokens -> Fine-grained tokens` to regenerate your new `"OSPO_EXPLORER_TOKEN"` using the `Regenerate token` button. Remember to copy and save your token in a safe space!
 
 You can copy the new value of your token to the oss-project-explorer repository by going to the repository (as any authorized user), and going to `Settings -> Secrets and Variables -> Actions` and editing the existing token value. Copy your new token value into the provided field and select the `Update Secret` button.
+
+![OSS EXPLORER TOKEN PAT 4](fig/oss_project_explorer_pat_4.JPG)
 
 Once you have created or updated your secret, please remember to test that your new PAT has the correct permissions. You can do this by going to the main web interface, filling in the form, and submitting a new entry. If the PAT is set up correctly, your PR should show up under the Pull Request tab with your submission. 
 
@@ -152,7 +161,7 @@ You can see JavaScript errors in the Console tab of the dev tools.
 
 Certain issues will be a result of the interaction with the Github API. Opening up the "Network" tab on the dev tools will allow you to see all REST and socket traffic. You can then dive into each request and its response.
 
-![Github_API_Error.png](Github_API_Error.png)
+![Github_API_Error.png](fig/Github_API_Error.png)
 *Error due to an invalid Github token when trying to call the Github API after submitting a new project form*
 
 ## 7. User Workflow in the React Application
