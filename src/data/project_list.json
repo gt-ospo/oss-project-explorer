@@ -60,5 +60,23 @@
     ],
     "projectUrl": "https://github.com/MolSSI/QCManyBody",
     "guidelinesUrl": ""
+  },
+  {
+    "projectName": "Vortex",
+    "projectAbstract": "Vortex is an open-source hardware and software project to support GPGPU based on RISC-V ISA extensions. Currently, Vortex supports OpenCL/CUDA and it runs on FPGA. The Vortex platform is highly customizable and scalable with a complete open-source compiler, driver and runtime software stack to enable research in GPU architectures.",
+    "projectAreas": [
+      "CS"
+    ],
+    "licenses": [
+      "Apache-2.0"
+    ],
+    "contacts": [
+      {
+        "name": "Hyesoon Kim",
+        "email": "hyesoon@cc.gatech.edu"
+      }
+    ],
+    "projectUrl": "https://vortex.cc.gatech.edu/",
+    "guidelinesUrl": ""
   }
 ]
