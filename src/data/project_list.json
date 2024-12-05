@@ -78,5 +78,23 @@
     ],
     "projectUrl": "https://github.com/cupbop/CuPBoP",
     "guidelinesUrl": ""
+  },
+  {
+    "projectName": "SLOSH-ML",
+    "projectAbstract": "SLOSH-ML is a Matlab graphical user interface designed to analyze rocket propellant sloshing in space launch vehicles",
+    "projectAreas": [
+      "Other"
+    ],
+    "licenses": [
+      "GPL-3.0-only"
+    ],
+    "contacts": [
+      {
+        "name": "Álvaro Romero-Calvo",
+        "email": "alvaro.romerocalvo@gatech.edu"
+      }
+    ],
+    "projectUrl": "https://github.com/LGST-LAB/slosh_ml",
+    "guidelinesUrl": "https://github.com/LGST-LAB/slosh_ml/blob/main/README.md"
   }
 ]
