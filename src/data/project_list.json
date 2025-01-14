@@ -158,5 +158,28 @@
     ],
     "projectUrl": "https://sharc-lab.github.io/HLSFactory/docs/",
     "guidelinesUrl": "https://github.com/sharc-lab/hlsfactory"
+  },
+  {
+    "projectName": "LightningSim",
+    "projectAbstract": "LightningSim is an ultra-fast, accurate, trace-based simulator for High-Level Synthesis (HLS) designs. It is 99.9% accurate compared with C/RTL co-simulation while is up to two orders of magnitude faster. It also features an incremental FIFO depths optimization, which is up to 500x faster than using HLS default exploration.",
+    "projectAreas": [
+      "AI",
+      "HPC"
+    ],
+    "licenses": [
+      "AGPL-3.0"
+    ],
+    "contacts": [
+      {
+        "name": "Callie Hao",
+        "email": "callie.hao@gatech.edu"
+      },
+      {
+        "name": "Rishov Sarkar",
+        "email": "rishov.sarkar@gatech.edu"
+      }
+    ],
+    "projectUrl": "https://github.com/sharc-lab/LightningSim",
+    "guidelinesUrl": "https://lightningsim-doc.readthedocs.io/en/latest/index.html"
   }
 ]
