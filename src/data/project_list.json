@@ -62,6 +62,24 @@
     "guidelinesUrl": ""
   },
   {
+    "projectName": "Vortex",
+    "projectAbstract": "Vortex is an open-source hardware and software project to support GPGPU based on RISC-V ISA extensions. Currently Vortex supports OpenCL and it runs on FPGA. The vortex platform is highly customizable and scalable with a complete open-source compiler, driver and runtime software stack to enable research in GPU architectures.",
+    "projectAreas": [
+      "HPC"
+    ],
+    "licenses": [
+      "Apache-2.0"
+    ],
+    "contacts": [
+      {
+        "name": "Hyesoon Kim",
+        "email": "hyesoon@cc.gatech.edu"
+      }
+    ],
+    "projectUrl": "https://vortex.cc.gatech.edu/",
+    "guidelinesUrl": "https://github.com/vortexgpgpu/vortex/blob/master/docs/contributing.md"
+  },
+  {
     "projectName": "CuPBoP (Cuda for Parallelized and Broad-range Processors)",
     "projectAbstract": "CuPBoP is a framework which support executing unmodified CUDA source code on non-NVIDIA devices. Currently, CuPBoP support serveral CPU backends, including x86, AArch64, and RISC-V.",
     "projectAreas": [
@@ -101,7 +119,71 @@
     "guidelinesUrl": ""
   },
   {
-    "projectName": "Using Machine Learning any image analysis to semi-automate fission-track dating",
+    "projectName": "SLOSH-ML",
+    "projectAbstract": "SLOSH-ML is a Matlab graphical user interface designed to analyze rocket propellant sloshing in space launch vehicles",
+    "projectAreas": [
+      "Other"
+    ],
+    "licenses": [
+      "GPL-3.0-only"
+    ],
+    "contacts": [
+      {
+        "name": "Alvaro Romero-Calvo",
+        "email": "alvaro.romerocalvo@gatech.edu"
+      }
+    ],
+    "projectUrl": "https://github.com/LGST-LAB/slosh_ml",
+    "guidelinesUrl": "https://github.com/LGST-LAB/slosh_ml/blob/main/README.md"
+  },
+  {
+    "projectName": "HLSFactory",
+    "projectAbstract": "HLSFactory is a framework for High-Level Synthesis (HLS) design datasets. It provides both the facilities to collect and build custom HLS datasets using various frontends, supported HLS tools, and data aggregation as well as provides built-in design dataset sources for users who want to run their own experiments out of the box. We also provide easy facilities for new users to contribute their own HLS designs to the existing design datasets as well as augment the existing tool flows to support custom flows such as new front ends for design space sampling and new vendor tool support.",
+    "projectAreas": [
+      "AI",
+      "HPC"
+    ],
+    "licenses": [
+      "AGPL-3.0"
+    ],
+    "contacts": [
+      {
+        "name": "Callie Hao",
+        "email": "callie.hao@gatech.edu"
+      },
+      {
+        "name": "Stefan Abi-Karam",
+        "email": "stefanabikaram@gatech.edu"
+      }
+    ],
+    "projectUrl": "https://sharc-lab.github.io/HLSFactory/docs/",
+    "guidelinesUrl": "https://github.com/sharc-lab/hlsfactory"
+  },
+  {
+    "projectName": "LightningSim",
+    "projectAbstract": "LightningSim is an ultra-fast, accurate, trace-based simulator for High-Level Synthesis (HLS) designs. It is 99.9% accurate compared with C/RTL co-simulation while is up to two orders of magnitude faster. It also features an incremental FIFO depths optimization, which is up to 500x faster than using HLS default exploration.",
+    "projectAreas": [
+      "AI",
+      "HPC"
+    ],
+    "licenses": [
+      "AGPL-3.0"
+    ],
+    "contacts": [
+      {
+        "name": "Callie Hao",
+        "email": "callie.hao@gatech.edu"
+      },
+      {
+        "name": "Rishov Sarkar",
+        "email": "rishov.sarkar@gatech.edu"
+      }
+    ],
+    "projectUrl": "https://github.com/sharc-lab/LightningSim",
+    "guidelinesUrl": "https://lightningsim-doc.readthedocs.io/en/latest/index.html"
+  },
+  {
+    "projectName": "Fijjiontrack",
     "projectAbstract": "Fission-track dating is a well established form of radiometric dating, a fundamental technique used to measure geological time. Most radiometric dating approaches rely on expensive laboratory analyses inaccessible to a majority of Earth scientists around the globe, but fission-track analysis can be performed by analysis of digital micrographs, a much cheaper and more accessible option. This project seeks to build software and machine learning algorithms to semi-automate fission-track analyses from digitial micrographs with an ultimate goal of increasing access to radiometric dating for Earth scientists around the world.",
     "projectAreas": [
       "Other",
