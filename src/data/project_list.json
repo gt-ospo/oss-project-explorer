@@ -117,5 +117,23 @@
     ],
     "projectUrl": "https://airavata.apache.org/",
     "guidelinesUrl": ""
+  },
+  {
+    "projectName": "SLOSH-ML",
+    "projectAbstract": "SLOSH-ML is a Matlab graphical user interface designed to analyze rocket propellant sloshing in space launch vehicles",
+    "projectAreas": [
+      "Other"
+    ],
+    "licenses": [
+      "GPL-3.0-only"
+    ],
+    "contacts": [
+      {
+        "name": "Alvaro Romero-Calvo",
+        "email": "alvaro.romerocalvo@gatech.edu"
+      }
+    ],
+    "projectUrl": "https://github.com/LGST-LAB/slosh_ml",
+    "guidelinesUrl": "https://github.com/LGST-LAB/slosh_ml/blob/main/README.md"
   }
 ]
