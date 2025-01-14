@@ -181,5 +181,24 @@
     ],
     "projectUrl": "https://github.com/sharc-lab/LightningSim",
     "guidelinesUrl": "https://lightningsim-doc.readthedocs.io/en/latest/index.html"
+  },
+  {
+    "projectName": "Fijjiontrack",
+    "projectAbstract": "Fission-track dating is a well established form of radiometric dating, a fundamental technique used to measure geological time. Most radiometric dating approaches rely on expensive laboratory analyses inaccessible to a majority of Earth scientists around the globe, but fission-track analysis can be performed by analysis of digital micrographs, a much cheaper and more accessible option. This project seeks to build software and machine learning algorithms to semi-automate fission-track analyses from digitial micrographs with an ultimate goal of increasing access to radiometric dating for Earth scientists around the world.",
+    "projectAreas": [
+      "Other",
+      "AI"
+    ],
+    "licenses": [
+      "Public Domain"
+    ],
+    "contacts": [
+      {
+        "name": "Karl Lang",
+        "email": "karl.lang@eas.gatech.edu"
+      }
+    ],
+    "projectUrl": "https://github.com/gatechtonics/fijjiontrack",
+    "guidelinesUrl": ""
   }
 ]
