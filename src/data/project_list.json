@@ -63,7 +63,25 @@
   },
   {
     "projectName": "Vortex",
-    "projectAbstract": "Vortex is an open-source hardware and software project to support GPGPU based on RISC-V ISA extensions. Currently, Vortex supports OpenCL/CUDA and it runs on FPGA. The Vortex platform is highly customizable and scalable with a complete open-source compiler, driver and runtime software stack to enable research in GPU architectures.",
+    "projectAbstract": "Vortex is an open-source hardware and software project to support GPGPU based on RISC-V ISA extensions. Currently Vortex supports OpenCL and it runs on FPGA. The vortex platform is highly customizable and scalable with a complete open-source compiler, driver and runtime software stack to enable research in GPU architectures.",
+    "projectAreas": [
+      "HPC"
+    ],
+    "licenses": [
+      "Apache-2.0"
+    ],
+    "contacts": [
+      {
+        "name": "Hyesoon Kim",
+        "email": "hyesoon@cc.gatech.edu"
+      }
+    ],
+    "projectUrl": "https://vortex.cc.gatech.edu/",
+    "guidelinesUrl": "https://github.com/vortexgpgpu/vortex/blob/master/docs/contributing.md"
+  },
+  {
+    "projectName": "CuPBoP (Cuda for Parallelized and Broad-range Processors)",
+    "projectAbstract": "CuPBoP is a framework which support executing unmodified CUDA source code on non-NVIDIA devices. Currently, CuPBoP support serveral CPU backends, including x86, AArch64, and RISC-V.",
     "projectAreas": [
       "CS"
     ],
@@ -76,7 +94,28 @@
         "email": "hyesoon@cc.gatech.edu"
       }
     ],
-    "projectUrl": "https://vortex.cc.gatech.edu/",
+    "projectUrl": "https://github.com/cupbop/CuPBoP",
+    "guidelinesUrl": ""
+  },
+  {
+    "projectName": "Apache Airavata",
+    "projectAbstract": "Apache Airavata is an open-source software framework that simplifies complex computational experiments by providing robust solutions across three core areas: Data Management, Security, and Execution Management. It empowers scientists to leverage distributed computing resources seamlessly while enabling developers to build customizable science gateways. Widely adopted across scientific domains, Apache Airavata has been instrumental in powering over 50 science gateways through its flagship deployment, the Science Gateways Platform as a Service (SciGaP). Supported by NSF, NASA, and NIH funding, Airavata continues to drive innovation by integrating modern technologies like AI/ML and streamlining access to distributed resources, accelerating scientific discovery.",
+    "projectAreas": [
+      "AI",
+      "CS",
+      "HPC",
+      "Other"
+    ],
+    "licenses": [
+      "Apache-2.0"
+    ],
+    "contacts": [
+      {
+        "name": "Suresh Marru",
+        "email": "smarru@apache.org"
+      }
+    ],
+    "projectUrl": "https://airavata.apache.org/",
     "guidelinesUrl": ""
   }
 ]
