@@ -135,5 +135,28 @@
     ],
     "projectUrl": "https://github.com/LGST-LAB/slosh_ml",
     "guidelinesUrl": "https://github.com/LGST-LAB/slosh_ml/blob/main/README.md"
+  },
+  {
+    "projectName": "HLSFactory",
+    "projectAbstract": "HLSFactory is a framework for High-Level Synthesis (HLS) design datasets. It provides both the facilities to collect and build custom HLS datasets using various frontends, supported HLS tools, and data aggregation as well as provides built-in design dataset sources for users who want to run their own experiments out of the box. We also provide easy facilities for new users to contribute their own HLS designs to the existing design datasets as well as augment the existing tool flows to support custom flows such as new front ends for design space sampling and new vendor tool support.",
+    "projectAreas": [
+      "AI",
+      "HPC"
+    ],
+    "licenses": [
+      "AGPL-3.0"
+    ],
+    "contacts": [
+      {
+        "name": "Callie Hao",
+        "email": "callie.hao@gatech.edu"
+      },
+      {
+        "name": "Stefan Abi-Karam",
+        "email": "stefanabikaram@gatech.edu"
+      }
+    ],
+    "projectUrl": "https://sharc-lab.github.io/HLSFactory/docs/",
+    "guidelinesUrl": "https://github.com/sharc-lab/hlsfactory"
   }
 ]
