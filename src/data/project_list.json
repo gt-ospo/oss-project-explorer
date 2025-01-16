@@ -200,5 +200,23 @@
     ],
     "projectUrl": "https://github.com/gatechtonics/fijjiontrack",
     "guidelinesUrl": ""
+  },
+  {
+    "projectName": "Qwerty",
+    "projectAbstract": "Qwerty is a basis-oriented quantum programming language designed to achieve a higher level of abstraction, particularly for newcomers. The Qwerty compiler is an open-source project.",
+    "projectAreas": [
+      "CS"
+    ],
+    "licenses": [
+      "MIT"
+    ],
+    "contacts": [
+      {
+        "name": "Austin J. Adams",
+        "email": "aja@gatech.edu"
+      }
+    ],
+    "projectUrl": "https://github.com/gt-tinker/qwerty",
+    "guidelinesUrl": ""
   }
 ]
