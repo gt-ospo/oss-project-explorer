@@ -129,48 +129,31 @@ const ProjectForm = forwardRef((props, ref) => {
       });
       console.debug('POST branch', change_branch_response);
 
-      // get sha of file
-      const file_sha_response = await octokit.request('GET /repos/{owner}/{repo}/contents/{path}?ref={branch}', {
-        owner: "gt-ospo",
-        repo: "oss-project-explorer",
-        path: 'src/data/project_list.json',
-        branch: new_branch
-      });
-      console.debug('GET file', file_sha_response);
-
-      let fileContent = [];
-      let file_sha;
-
-      if (file_sha_response.status === 200) {
-        file_sha = file_sha_response.data.sha;
-        fileContent = JSON.parse(atob(file_sha_response.data.content));
-      }
+      // Create unique filename for entry
+      const uniqueFilename = `src/data/submissions/${formData.projectName.replace(/\s+/g, '_')}_${Date.now()}.json`;
 
       // Turn new file contents to base 64 encoding
-      fileContent.push(formData);
-      fileContent = JSON.stringify(fileContent, null, 2);
+      let fileContent = JSON.stringify(formData, null, 2);
       fileContent = btoa(fileContent);
 
       // post file content
-        if (file_sha_response.status === 200) {
       try {
           let content_response = await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
             owner: "gt-ospo",
             repo: "oss-project-explorer",
-            path: "src/data/project_list.json",
+            path: uniqueFilename,
             message: "Inserted new project to project list file",
             content: fileContent,
-            sha: file_sha,
             branch: new_branch
           });
           console.debug('PUT file', content_response);
-      
-        // create pull request
+
+          // create pull request
           let pull_response = await octokit.request('POST /repos/{owner}/{repo}/pulls', {
             owner: 'gt-ospo',
             repo: 'oss-project-explorer',
-            title: 'Project List Update',
-            body: 'added new project to list',
+            title: `New Submission: ${formData.projectName}`,
+            body: 'Added a new project submission',
             // head: 'gt-ospo-bot:' + new_branch,
             head: new_branch,
             base: 'main'
@@ -189,7 +172,6 @@ const ProjectForm = forwardRef((props, ref) => {
     } else {
       setSuccessMessage("");
     }
-  }
   };
 
   return (
