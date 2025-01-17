@@ -218,5 +218,23 @@
     ],
     "projectUrl": "https://github.com/gt-tinker/qwerty",
     "guidelinesUrl": ""
+  },
+  {
+    "projectName": "Test Project 1",
+    "projectAbstract": "This is a test project to check new functionality",
+    "projectAreas": [
+      "Bioscience"
+    ],
+    "licenses": [
+      "AGPL-3.0"
+    ],
+    "contacts": [
+      {
+        "name": "John Doe",
+        "email": "jdoe@gmail.com"
+      }
+    ],
+    "projectUrl": "https://github.com/",
+    "guidelinesUrl": ""
   }
 ]
