@@ -218,5 +218,25 @@
     ],
     "projectUrl": "https://github.com/gt-tinker/qwerty",
     "guidelinesUrl": ""
+  },
+  {
+    "projectName": "GTSAM: Georgia Tech Smoothing and Mapping Library",
+    "projectAbstract": "GTSAM is a C++ library that implements smoothing and mapping (SAM) in robotics and vision, using Factor Graphs and Bayes Networks as the underlying computing paradigm rather than sparse matrices.",
+    "projectAreas": [
+      "AI",
+      "Robotics",
+      "CS"
+    ],
+    "licenses": [
+      "BSD-3-Clause"
+    ],
+    "contacts": [
+      {
+        "name": "dellaert@cc.gatech.edu",
+        "email": ""
+      }
+    ],
+    "projectUrl": "https://gtsam.org/",
+    "guidelinesUrl": ""
   }
 ]
