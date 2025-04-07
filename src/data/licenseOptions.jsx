@@ -4,7 +4,7 @@ const licenseOptions = [
     { value: 'BSD-2-Clause', label: 'BSD-2-Clause' },
     { value: 'BSD-3-Clause', label: 'BSD-3-Clause' },
     { value: 'Creative Commons', label: 'Creative Commons' },
-    { value: 'GNU Free Documentation License', label: 'GFDL-1.3' },
+    { value: 'GFDL-1.3', label: 'GFDL-1.3' },
     { value: 'GPL-2.0-only', label: 'GPL-2.0-only' },
     { value: 'GPL-2.0-or-later', label: 'GPL-2.0-or-later' },
     { value: 'GPL-3.0-only', label: 'GPL-3.0-only' },
