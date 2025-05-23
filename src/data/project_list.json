@@ -238,5 +238,29 @@
     ],
     "projectUrl": "https://gtsam.org/",
     "guidelinesUrl": ""
+  },
+  {
+    "projectName": "AI Fundamentals",
+    "projectAbstract": "A concise textbook offering a mathematical and programming-based approach to understanding artificial intelligence. ",
+    "projectAreas": [
+      "AI",
+      "CS"
+    ],
+    "licenses": [
+      "GPL-3.0-only",
+      "GFDL-1.3"
+    ],
+    "contacts": [
+      {
+        "name": "Kenneth (Alex) Jenkins",
+        "email": "kjenkins60@gatech.edu"
+      },
+      {
+        "name": "Dr. Francesco Fedele",
+        "email": "fedele@gatech.edu"
+      }
+    ],
+    "projectUrl": "https://github.com/Fedele-AI/AI_Fundamentals",
+    "guidelinesUrl": "https://github.com/Fedele-AI/AI_Fundamentals?tab=coc-ov-file"
   }
 ]
