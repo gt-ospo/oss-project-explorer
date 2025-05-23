@@ -1,0 +1,51 @@
+name: Manually Build and Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:
+
+# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'deploy-${{ github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  manual-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    env:
+      OSPO_EXPLORER_TOKEN: ${{ secrets.OSPO_EXPLORER_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Replace PAT
+        run: |
+          sed -i "s/OSPO_EXPLORER_TOKEN/$OSPO_EXPLORER_TOKEN/g" src/components/ProjectFormPage/ProjectForm.jsx
+          sed -i "s/OSPO_EXPLORER_TOKEN/$OSPO_EXPLORER_TOKEN/g" src/data/aggregateProjects.jsx      
+      - name: Aggregate Submission Files
+        run: node src/data/aggregateProjects.jsx
+      - name: Build
+        run: npm run build
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './build'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
