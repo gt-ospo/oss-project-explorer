@@ -262,5 +262,28 @@
     ],
     "projectUrl": "https://github.com/Fedele-AI/AI_Fundamentals",
     "guidelinesUrl": "https://github.com/Fedele-AI/AI_Fundamentals?tab=coc-ov-file"
+  },
+  {
+    "projectName": "ML Visualizer",
+    "projectAbstract": "A self-contained, libre website designed to demonstrate and explain modern machine learning techniques, technologies, and methods. ",
+    "projectAreas": [
+      "AI",
+      "CS"
+    ],
+    "licenses": [
+      "GPL-3.0-only"
+    ],
+    "contacts": [
+      {
+        "name": "Kenneth (Alex) Jenkins",
+        "email": "kjenkins60@gatech.edu"
+      },
+      {
+        "name": "Dr. Francesco Fedele",
+        "email": "fedele@gatech.edu"
+      }
+    ],
+    "projectUrl": "https://mlvisualizer.org",
+    "guidelinesUrl": "https://github.com/Fedele-AI/MLvisualizer?tab=coc-ov-file"
   }
 ]
