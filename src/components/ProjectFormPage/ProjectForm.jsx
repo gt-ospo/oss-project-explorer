@@ -101,65 +101,65 @@ const ProjectForm = forwardRef((props, ref) => {
       setSuccessMessage("Loading please wait...")
       setIsSubmitting(true)
 
-      const octokit = new Octokit({
-        auth: "OSPO_EXPLORER_TOKEN",
-      });
-
-      // get main branch SHA
-      const main_branch_response = await octokit.request('GET /repos/{owner}/{repo}/git/refs/heads/main', {
-        owner: "gt-ospo",
-        repo: "oss-project-explorer"
-      });
-
-      console.debug('GET main', main_branch_response);
-      
-      let main_branch_sha = null;
-      if (main_branch_response.status === 200) {
-        main_branch_sha = main_branch_response.data.object.sha;
-      }
-
-      const new_branch = crypto.randomUUID();
-
-      // create new branch
-      const change_branch_response = await octokit.request('POST /repos/{owner}/{repo}/git/refs', {
-        owner: "gt-ospo",
-        repo: "oss-project-explorer",
-        ref: 'refs/heads/' + new_branch,
-        sha: main_branch_sha
-      });
-      console.debug('POST branch', change_branch_response);
-
-      // Create unique filename for entry
-      const uniqueFilename = `src/data/submissions/${formData.projectName.replace(/\s+/g, '_')}_${Date.now()}.json`;
-
-      // Turn new file contents to base 64 encoding
-      let fileContent = JSON.stringify(formData, null, 2);
-      fileContent = btoa(fileContent);
-
-      // post file content
       try {
-          let content_response = await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
-            owner: "gt-ospo",
-            repo: "oss-project-explorer",
-            path: uniqueFilename,
-            message: "Inserted new project to project list file",
-            content: fileContent,
-            branch: new_branch
-          });
-          console.debug('PUT file', content_response);
+        const octokit = new Octokit({
+          auth: "OSPO_EXPLORER_TOKEN",
+        });
 
-          // create pull request
-          let pull_response = await octokit.request('POST /repos/{owner}/{repo}/pulls', {
-            owner: 'gt-ospo',
-            repo: 'oss-project-explorer',
-            title: `New Submission: ${formData.projectName}`,
-            body: 'Added a new project submission',
-            // head: 'gt-ospo-bot:' + new_branch,
-            head: new_branch,
-            base: 'main'
-          });
-          console.debug('POST pull', pull_response);
-        
+        // get main branch SHA
+        const main_branch_response = await octokit.request('GET /repos/{owner}/{repo}/git/refs/heads/main', {
+          owner: "gt-ospo",
+          repo: "oss-project-explorer"
+        });
+
+        console.debug('GET main', main_branch_response);
+
+        let main_branch_sha = null;
+        if (main_branch_response.status === 200) {
+          main_branch_sha = main_branch_response.data.object.sha;
+        }
+
+        const new_branch = crypto.randomUUID();
+
+        // create new branch
+        const change_branch_response = await octokit.request('POST /repos/{owner}/{repo}/git/refs', {
+          owner: "gt-ospo",
+          repo: "oss-project-explorer",
+          ref: 'refs/heads/' + new_branch,
+          sha: main_branch_sha
+        });
+        console.debug('POST branch', change_branch_response);
+
+        // Create unique filename for entry
+        const uniqueFilename = `src/data/submissions/${formData.projectName.replace(/\s+/g, '_')}_${Date.now()}.json`;
+
+        // Turn new file contents to base 64 encoding
+        let fileContent = JSON.stringify(formData, null, 2);
+        fileContent = btoa(fileContent);
+
+        // post file content
+        let content_response = await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
+          owner: "gt-ospo",
+          repo: "oss-project-explorer",
+          path: uniqueFilename,
+          message: "Inserted new project to project list file",
+          content: fileContent,
+          branch: new_branch
+        });
+        console.debug('PUT file', content_response);
+
+        // create pull request
+        let pull_response = await octokit.request('POST /repos/{owner}/{repo}/pulls', {
+          owner: 'gt-ospo',
+          repo: 'oss-project-explorer',
+          title: `New Submission: ${formData.projectName}`,
+          body: 'Added a new project submission',
+          // head: 'gt-ospo-bot:' + new_branch,
+          head: new_branch,
+          base: 'main'
+        });
+        console.debug('POST pull', pull_response);
+
         setSuccessMessage("Thank you for submitting your project. Your submission will be reviewed via Github PR, and we will notify you once your project is approved to be added.");
       } catch (error) {
         console.debug('HTTP Error status:', error.status);
