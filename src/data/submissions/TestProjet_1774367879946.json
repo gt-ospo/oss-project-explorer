@@ -1,0 +1,18 @@
+{
+  "projectName": "TestProjet",
+  "projectAbstract": "Testing",
+  "projectAreas": [
+    "Bioscience"
+  ],
+  "licenses": [
+    "AGPL-3.0"
+  ],
+  "contacts": [
+    {
+      "name": "GBurdell",
+      "email": ""
+    }
+  ],
+  "projectUrl": "https://github.com/gburdell/testing",
+  "guidelinesUrl": ""
+}
