@@ -2,7 +2,7 @@
 
 This is the main project repo for the Georgia Tech Open Source Program Office (OSPO) open source project explorer. See http://gt-ospo.github.io/oss-project-explorer for the website version. 
 
-This project provides a completely open-source, standalone solution for 
+This project provides a completely open-source, standalone solution for hosting information on open source projects and sorting them according to license and category.
 
 ## Using this repository
 
