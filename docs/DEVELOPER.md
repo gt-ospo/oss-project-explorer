@@ -202,3 +202,5 @@ The application also allows users to submit new open-source projects for inclusi
    - After successfully submitting the form, the user receives a confirmation message. The new project undergoes a review process before being added to the public project list.
 
 ## Debugging
+
+
