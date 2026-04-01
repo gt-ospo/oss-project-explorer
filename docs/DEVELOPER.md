@@ -196,11 +196,23 @@ The application also allows users to submit new open-source projects for inclusi
 
 3. **Submitting the Project**:
    - Upon submission, the form data is processed and sent via the GitHub API using the `Octokit` library, as described in the `ProjectForm.jsx` file.
-   - A new branch is created in the repository, and the project details are added to `project_list.json`. Finally, a pull request is automatically generated for review by the OSPO repository maintainers.
+   - A new branch is created in the repository, and the project details are added to `project_list.json`. Finally, a pull request is automatically generated for rebyview by the OSPO repository maintainers.
 
 4. **Confirmation and Review**:
    - After successfully submitting the form, the user receives a confirmation message. The new project undergoes a review process before being added to the public project list.
 
-## Debugging
+5. **Troubleshooting**
 
+One error that can occur is with submitting projects via the "Submit new Project" UI.
+
+![oss_project_explorer_debugging_1.png](fig/oss_project_explorer_debugging_1.png)
+
+To diagnose if an issue is UI related, load the application in a browser with the DevTools open. Try submitting the form again with the Console in DevTools open. You can see JavaScript errors in the Console tab of the dev tools.
+
+![oss_project_explorer_debugging_2.png](fig/oss_project_explorer_debugging_2.png)
+*This error arose from the fine-grained PAT missing Read/Write permissions for creating pull requests
+
+The user can confirm if the repo is using the correct PAT by opening DevTools, submitting a project via the form and opening the Sources tab. Expand the "assets" folder on the left, and click "index-gC9GgPKc.js" and search for "auth:" to see what PAT is being replaced and used to create the pull request. This should match the OSPO_EXPLORER_TOKEN repository secret in the main repo. To check this, go to Settings -> Secrets and Variables -> Actions. 
+
+![oss_project_explorer_debugging_3.png](fig/oss_project_explorer_debugging_3.png)
 
