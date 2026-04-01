@@ -201,18 +201,27 @@ The application also allows users to submit new open-source projects for inclusi
 4. **Confirmation and Review**:
    - After successfully submitting the form, the user receives a confirmation message. The new project undergoes a review process before being added to the public project list.
 
-5. **Troubleshooting**
+#### 5. **Troubleshooting**
 
-One error that can occur is with submitting projects via the "Submit new Project" UI.
+5.1 **Identifying errors**
+
+One error that can occur is with submitting projects via the "Submit new Project" UI. For example, the error "POST https://api.github.com/repos/gt-ospo/oss-project-explorer/git/refs 403 (Forbidden)" as shown below in Figure 1
 
 ![oss_project_explorer_debugging_1.png](fig/oss_project_explorer_debugging_1.png)
+*Figure 1*
 
-To diagnose if an issue is UI related, load the application in a browser with the DevTools open. Try submitting the form again with the Console in DevTools open. You can see JavaScript errors in the Console tab of the dev tools.
+To diagnose if an issue is related to the client Personal Access Token (PAT), load the application in a browser with the DevTools open. Try submitting the form again with the Console in DevTools open. You can see JavaScript errors in the Console tab of the dev tools.
 
 ![oss_project_explorer_debugging_2.png](fig/oss_project_explorer_debugging_2.png)
-*This error arose from the fine-grained PAT missing Read/Write permissions for creating pull requests
+*Figure 2: This error arose from the fine-grained PAT missing Read/Write permissions for creating pull requests*
 
 The user can confirm if the repo is using the correct PAT by opening DevTools, submitting a project via the form and opening the Sources tab. Expand the "assets" folder on the left, and click "index-gC9GgPKc.js" and search for "auth:" to see what PAT is being replaced and used to create the pull request. This should match the OSPO_EXPLORER_TOKEN repository secret in the main repo. To check this, go to Settings -> Secrets and Variables -> Actions. 
 
 ![oss_project_explorer_debugging_3.png](fig/oss_project_explorer_debugging_3.png)
+*Figure 3*
+
+5.2 **Resolving errors**
+
+
+
 
