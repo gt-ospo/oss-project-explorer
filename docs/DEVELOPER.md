@@ -196,7 +196,7 @@ The application also allows users to submit new open-source projects for inclusi
 
 3. **Submitting the Project**:
    - Upon submission, the form data is processed and sent via the GitHub API using the `Octokit` library, as described in the `ProjectForm.jsx` file.
-   - A new branch is created in the repository, and the project details are added to `project_list.json`. Finally, a pull request is automatically generated for rebyview by the OSPO repository maintainers.
+   - A new branch is created in the repository, and the project details are added to `project_list.json`. Finally, a pull request is automatically generated for review by the OSPO repository maintainers.
 
 4. **Confirmation and Review**:
    - After successfully submitting the form, the user receives a confirmation message. The new project undergoes a review process before being added to the public project list.
