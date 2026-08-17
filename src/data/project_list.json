@@ -19,7 +19,8 @@
       }
     ],
     "projectUrl": "https://github.com/hpcgarage/spatter",
-    "guidelinesUrl": "https://github.com/hpcgarage/spatter/blob/main/CONTRIBUTING.md"
+    "guidelinesUrl": "https://github.com/hpcgarage/spatter/blob/main/CONTRIBUTING.md",
+    "logo": ""
   },
   {
     "projectName": "MFC",
@@ -37,7 +38,8 @@
       }
     ],
     "projectUrl": "https://mflowcode.github.io",
-    "guidelinesUrl": "https://mflowcode.github.io"
+    "guidelinesUrl": "https://mflowcode.github.io",
+    "logo": "src/logos/MFC-logo.webp"
   },
   {
     "projectName": "QCManyBody",
@@ -59,7 +61,8 @@
       }
     ],
     "projectUrl": "https://github.com/MolSSI/QCManyBody",
-    "guidelinesUrl": ""
+    "guidelinesUrl": "",
+    "logo": "src/logos/QCMB-logo.webp"
   },
   {
     "projectName": "Vortex",
@@ -77,7 +80,8 @@
       }
     ],
     "projectUrl": "https://vortex.cc.gatech.edu/",
-    "guidelinesUrl": "https://github.com/vortexgpgpu/vortex/blob/master/docs/contributing.md"
+    "guidelinesUrl": "https://github.com/vortexgpgpu/vortex/blob/master/docs/contributing.md",
+    "logo": "src/logos/vortex-logo.webp"
   },
   {
     "projectName": "CuPBoP (Cuda for Parallelized and Broad-range Processors)",
@@ -95,7 +99,8 @@
       }
     ],
     "projectUrl": "https://github.com/cupbop/CuPBoP",
-    "guidelinesUrl": ""
+    "guidelinesUrl": "",
+    "logo": ""
   },
   {
     "projectName": "Apache Airavata",
@@ -116,7 +121,8 @@
       }
     ],
     "projectUrl": "https://airavata.apache.org/",
-    "guidelinesUrl": ""
+    "guidelinesUrl": "",
+    "logo": "src/logos/airavata-logo.webp"
   },
   {
     "projectName": "SLOSH-ML",
@@ -134,7 +140,8 @@
       }
     ],
     "projectUrl": "https://github.com/LGST-LAB/slosh_ml",
-    "guidelinesUrl": "https://github.com/LGST-LAB/slosh_ml/blob/main/README.md"
+    "guidelinesUrl": "https://github.com/LGST-LAB/slosh_ml/blob/main/README.md",
+    "logo": ""
   },
   {
     "projectName": "HLSFactory",
@@ -157,7 +164,8 @@
       }
     ],
     "projectUrl": "https://sharc-lab.github.io/HLSFactory/docs/",
-    "guidelinesUrl": "https://github.com/sharc-lab/hlsfactory"
+    "guidelinesUrl": "https://github.com/sharc-lab/hlsfactory",
+    "logo": "src/logos/hlsfactory-logo.webp"
   },
   {
     "projectName": "LightningSim",
@@ -180,7 +188,8 @@
       }
     ],
     "projectUrl": "https://github.com/sharc-lab/LightningSim",
-    "guidelinesUrl": "https://lightningsim-doc.readthedocs.io/en/latest/index.html"
+    "guidelinesUrl": "https://lightningsim-doc.readthedocs.io/en/latest/index.html",
+    "logo": "src/logos/lightningsim-logo.webp"
   },
   {
     "projectName": "Fijjiontrack",
@@ -199,7 +208,8 @@
       }
     ],
     "projectUrl": "https://github.com/gatechtonics/fijjiontrack",
-    "guidelinesUrl": ""
+    "guidelinesUrl": "",
+    "logo": ""
   },
   {
     "projectName": "Qwerty",
@@ -217,7 +227,8 @@
       }
     ],
     "projectUrl": "https://github.com/gt-tinker/qwerty",
-    "guidelinesUrl": ""
+    "guidelinesUrl": "",
+    "logo": ""
   },
   {
     "projectName": "GTSAM: Georgia Tech Smoothing and Mapping Library",
@@ -237,7 +248,8 @@
       }
     ],
     "projectUrl": "https://gtsam.org/",
-    "guidelinesUrl": ""
+    "guidelinesUrl": "",
+    "logo": ""
   },
   {
     "projectName": "AI Fundamentals",
@@ -261,7 +273,8 @@
       }
     ],
     "projectUrl": "https://github.com/Fedele-AI/AI_Fundamentals",
-    "guidelinesUrl": "https://github.com/Fedele-AI/AI_Fundamentals?tab=coc-ov-file"
+    "guidelinesUrl": "https://github.com/Fedele-AI/AI_Fundamentals?tab=coc-ov-file",
+    "logo": "src/logos/AF-logo.webp"
   },
   {
     "projectName": "ML Visualizer",
@@ -284,6 +297,7 @@
       }
     ],
     "projectUrl": "https://mlvisualizer.org",
-    "guidelinesUrl": "https://github.com/Fedele-AI/MLvisualizer?tab=coc-ov-file"
+    "guidelinesUrl": "https://github.com/Fedele-AI/MLvisualizer?tab=coc-ov-file",
+    "logo": "src/logos/mlviz_logo.webp"
   }
 ]
