@@ -200,3 +200,37 @@ The application also allows users to submit new open-source projects for inclusi
 
 4. **Confirmation and Review**:
    - After successfully submitting the form, the user receives a confirmation message. The new project undergoes a review process before being added to the public project list.
+
+#### 5. **Troubleshooting**
+
+5.1 **Identifying errors**
+
+One error that can occur is with submitting projects via the "Submit new Project" form. For example, the error "Failed to load resource: the server responded with a status of 403" as shown below in Figure 1
+
+![oss_project_explorer_debugging_1.png](fig/oss_project_explorer_debugging_1.png)
+
+To diagnose if an issue is related to the Git Personal Access Token (PAT), load the application in a browser with the DevTools open. Try submitting the form again with the Console in DevTools open. You may see an error like,
+
+![oss_project_explorer_debugging_2.png](fig/oss_project_explorer_debugging_2.png)
+*This error arose from the fine-grained PAT missing Read/Write permissions for creating pull requests*
+
+The user can confirm if the repo is using the correct PAT by opening DevTools, submitting a project via the form and clicking the Sources tab. Expand the "assets" folder on the left, click "index-gC9GgPKc.js" and search for "auth:" within the file to see what PAT is being replaced and used to create the pull request. This should match the OSPO_EXPLORER_TOKEN repository secret in the main repo. To check this, go to Settings -> Secrets and Variables -> Actions. 
+
+![oss_project_explorer_debugging_3.png](fig/oss_project_explorer_debugging_3.png)
+
+
+5.2 **Resolving errors**
+
+In the case of the "Failed to load resource: the server responded with a status of 403" error, the solution was to add "Contents: Read/Write" to the fine-grained PAT, regenerate the token, readd it to the oss-project-explorer site as a secret, and then rerun the manual-deploy workflow file. 
+
+After following these steps, the user can confirm that the pull request is successful by navigating to the website, filling out the "Submit a Project" form, opening the Console in DevTools and clicking submit. A successful submission should contain status: 200 and/or status: 201 messages, and should look like,
+
+![oss_project_explorer_success2.png](fig/oss_project_explorer_success_2.png)
+
+Then, on the website view, you should see a message at the bottom of the form indicating the submission was a success.
+
+![oss_project_explorer_success1.png](fig/oss_project_explorer_success_1.png)
+
+
+
+
