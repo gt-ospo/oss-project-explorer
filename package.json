@@ -9,7 +9,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react": "^6.0.5",
     "is-url": "^1.2.4",
     "octokit": "^4.1.1",
     "postcss-flexbugs-fixes": "^5.0.2",
@@ -20,7 +20,7 @@
     "react-router-dom": "^7.18.2",
     "react-select": "^5.8.0",
     "typescript": "^5.9.3",
-    "vite": "^5.4.21",
+    "vite": "^8.2.1",
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^4.3.2",
     "web-vitals": "^2.1.4"
