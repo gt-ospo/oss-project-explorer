@@ -299,5 +299,23 @@
     "projectUrl": "https://mlvisualizer.org",
     "guidelinesUrl": "https://github.com/Fedele-AI/MLvisualizer?tab=coc-ov-file",
     "logo": "src/logos/mlviz_logo.webp"
+  },
+  {
+    "projectName": "Zap Studio",
+    "projectAbstract": "Type-safe, framework-agnostic TypeScript packages for building modern apps.",
+    "projectAreas": [
+      "CS"
+    ],
+    "licenses": [
+      "MIT"
+    ],
+    "contacts": [
+      {
+        "name": "Alexandre Trotel",
+        "email": ""
+      }
+    ],
+    "projectUrl": "https://www.zapstudio.dev/",
+    "guidelinesUrl": "https://github.com/zap-studio/monorepo?tab=contributing-ov-file"
   }
 ]
