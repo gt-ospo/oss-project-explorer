@@ -16,6 +16,11 @@ const ProjectForm = forwardRef((props, ref) => {
     guidelinesUrl: ''
   });
 
+  // must match scripts/convert_logos.mjs, which derives src/logos/<base>.avif
+  const logoBase = (name) => name.replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_-]/g, '_');
+
+  const [logoFile, setLogoFile] = useState(null);
+
   const [errors, setErrors] = useState({});
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -78,6 +83,10 @@ const ProjectForm = forwardRef((props, ref) => {
     newErrors.projectAreas = formData.projectAreas.length > 0 ? '' : 'Please choose at least one project area';
     newErrors.licenses = formData.licenses.length > 0 ? '' : 'Please choose at least one license';
 
+    newErrors.logo = !logoFile || (logoFile.type.startsWith('image/') && logoFile.size <= 4 * 1024 * 1024)
+      ? ''
+      : 'Logo must be an image under 4MB';
+
     setErrors(newErrors);
 
     const allFieldsValid = Object.values(newErrors).every(error => {
@@ -133,8 +142,13 @@ const ProjectForm = forwardRef((props, ref) => {
         // Create unique filename for entry
         const uniqueFilename = `src/data/submissions/${formData.projectName.replace(/\s+/g, '_')}_${Date.now()}.json`;
 
-        // Turn new file contents to base 64 encoding
-        let fileContent = JSON.stringify(formData, null, 2);
+        // Turn new file contents to base 64 encoding; the logo path points at
+        // the AVIF the convert-submission-logo workflow will create on this PR
+        const submission = { ...formData };
+        if (logoFile) {
+          submission.logo = `src/logos/${logoBase(formData.projectName)}.avif`;
+        }
+        let fileContent = JSON.stringify(submission, null, 2);
         fileContent = btoa(fileContent);
 
         // post file content
@@ -147,6 +161,26 @@ const ProjectForm = forwardRef((props, ref) => {
           branch: new_branch
         });
         console.debug('PUT file', content_response);
+
+        // upload the raw logo image; the PR-open workflow converts it to
+        // src/logos/<base>.avif and removes this original
+        if (logoFile) {
+          const bytes = new Uint8Array(await logoFile.arrayBuffer());
+          let binary = '';
+          for (let i = 0; i < bytes.length; i += 0x8000) {
+            binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+          }
+          const ext = logoFile.name.split('.').pop();
+          let logo_response = await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
+            owner: "gt-ospo",
+            repo: "oss-project-explorer",
+            path: `src/data/submissions/${logoBase(formData.projectName)}_logo.${ext}`,
+            message: "Add project logo image",
+            content: btoa(binary),
+            branch: new_branch
+          });
+          console.debug('PUT logo', logo_response);
+        }
 
         // create pull request
         let pull_response = await octokit.request('POST /repos/{owner}/{repo}/pulls', {
@@ -383,6 +417,27 @@ const ProjectForm = forwardRef((props, ref) => {
               />
             </div>
             {errors.guidelinesUrl && <div className="text-xs text-red-500">{errors.guidelinesUrl}</div>}
+          </div>
+
+
+          <div className="sm:col-span-2">
+            <label htmlFor="projectLogo" className="block font-semibold leading-6 text-gtblack">
+              Project Logo
+            </label>
+
+            <div className="mt-2.5">
+              <input
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gtblack shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 file:mr-3 file:rounded file:border-0 file:bg-gray-100 file:px-3 file:py-1 file:text-sm file:font-semibold hover:file:bg-gray-200"
+                type="file"
+                name="projectLogo"
+                accept="image/png,image/jpeg,image/webp,image/avif"
+                onChange={(e) => setLogoFile(e.target.files[0] || null)}
+              />
+            </div>
+            {errors.logo && <div className="text-xs text-red-500">{errors.logo}</div>}
+            <div className="mt-2 text-xs text-gray-500">
+              <p>Optional. Your image is added to the review and converted automatically.</p>
+            </div>
           </div>
 
 
