@@ -6,6 +6,10 @@ name: Convert submission logo to AVIF
 on:
   pull_request:
     types: [opened, synchronize]
+    branches: [main]
+    # the form only ever writes into this directory
+    paths:
+      - 'src/data/submissions/**'
 
 permissions:
   contents: write
@@ -18,10 +22,13 @@ concurrency:
 jobs:
   convert:
     runs-on: ubuntu-latest
-    # Only same-repo PRs (the form always branches in gt-ospo directly).
-    # Fork PRs like human contributor branches would check out the wrong
-    # repo's ref and could never push back with GITHUB_TOKEN anyway.
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    # Only form submissions: the form branches in gt-ospo directly and titles
+    # its PRs "New Submission: <name>" (ProjectForm.jsx). Fork PRs like human
+    # contributor branches would check out the wrong repo's ref and could
+    # never push back with GITHUB_TOKEN anyway.
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      startsWith(github.event.pull_request.title, 'New Submission:')
     steps:
       - uses: actions/checkout@v4
         with:
@@ -43,7 +50,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A src/logos src/data/submissions
+          # src/data/submissions may not exist (non-submission PRs, or once the
+          # raw upload is removed), so stage its parent to avoid a pathspec error
+          git add -A src/logos src/data
           git diff --cached --quiet || git commit -m "Convert submission logo to AVIF"
           # push only back to the submission branch — never main
           git push origin "HEAD:refs/heads/$HEAD_REF"
