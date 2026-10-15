@@ -10,4 +10,4 @@ You are welcome to use and contribute to this project via the terms of the [MIT 
 
 ## Contributing to this repository
 
-We accept and appreciate both requests for bug fixes via GitHub issues and PRs for updates using the standard GitHub fork and pull request process.
+We accept and appreciate both requests for bug fixes via GitHub issues and PRs for updates using the standard GitHub fork and pull request process. Please see our [contribution guidelines](CONTRIBUTING.md) for details.
