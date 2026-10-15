@@ -18,8 +18,10 @@ concurrency:
 jobs:
   convert:
     runs-on: ubuntu-latest
-    # ponytail: same-repo PRs only (the form always branches in-repo) —
-    # add head-repo checkout handling if fork PRs ever need logo conversion
+    # Only same-repo PRs (the form always branches in gt-ospo directly).
+    # Fork PRs like human contributor branches would check out the wrong
+    # repo's ref and could never push back with GITHUB_TOKEN anyway.
+    if: github.event.pull_request.head.repo.full_name == github.repository
     steps:
       - uses: actions/checkout@v4
         with:
