@@ -43,7 +43,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A src/logos src/data/submissions
+          # src/data/submissions may not exist (non-submission PRs, or once the
+          # raw upload is removed), so stage its parent to avoid a pathspec error
+          git add -A src/logos src/data
           git diff --cached --quiet || git commit -m "Convert submission logo to AVIF"
           # push only back to the submission branch — never main
           git push origin "HEAD:refs/heads/$HEAD_REF"
