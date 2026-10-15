@@ -65,25 +65,37 @@ function ProjectExplorer() {
     }
 
     return (
-        <div className="isolate bg-white">
-            <TitleBar onSearchChange={handleSearchBarChange}/>
-            <AboutSection/>
+        <div className="flex flex-col bg-white min-h-screen">
+            <div className="shrink-0 bg-white z-10 shadow-sm relative">
+                <TitleBar onSearchChange={handleSearchBarChange} />
+            </div>
 
-            <div className="flex">
+            <div className="flex flex-col lg:flex-row flex-1 max-w-[1600px] w-full mx-auto">
                 {/* Filter and Button Column */}
-                <div className="flex-col p-4 bg-whites">
-                    <ProjectAreaFilter onProjectAreaFilterChange={handleProjectAreaChange}/>
-                    <LicenseFilter onLicenseFilterChange={handleLicenseChange}/>
+                <div className="order-2 lg:order-1 flex flex-col p-4 bg-gray-50 lg:w-72 shrink-0 border-t lg:border-t-0 lg:border-r border-gray-200">
+                    <div className="mt-0">
+                        <ProjectAreaFilter onProjectAreaFilterChange={handleProjectAreaChange} />
+                    </div>
+                    <div className="mt-6">
+                        <LicenseFilter onLicenseFilterChange={handleLicenseChange} />
+                    </div>
                 </div>
 
                 {/* Table and Nav Bar */}
-                <div className="flex-grow">
-                    <ProjectTable columnFilters={columnFilters} showForm={showForm} onShowForm={handleShowForm}/>
+                <div className="order-1 lg:order-2 flex-grow flex flex-col w-full relative min-w-0">
+                    <div className="p-4 sm:p-6 w-full max-w-full">
+                        <div className="mb-6">
+                            <AboutSection />
+                        </div>
+                        <ProjectTable columnFilters={columnFilters} showForm={showForm} onShowForm={handleShowForm} />
+                        {showForm && (
+                            <div className="mt-8 border-t border-gray-300 pt-8" ref={projectFormRef}>
+                                <ProjectForm />
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
-            
-            {/* Section where Project Submission form is rendered */}
-            {showForm && <ProjectForm ref={projectFormRef}/>}
         </div>
     );
 };
