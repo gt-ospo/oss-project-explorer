@@ -228,7 +228,7 @@
     ],
     "projectUrl": "https://github.com/gt-tinker/qwerty",
     "guidelinesUrl": "",
-    "logo": ""
+    "logo": "src/logos/qwerty-logo.avif"
   },
   {
     "projectName": "GTSAM: Georgia Tech Smoothing and Mapping Library",
