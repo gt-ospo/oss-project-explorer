@@ -20,6 +20,17 @@ const ProjectTable = ({ columnFilters, showForm, onShowForm }) => {
         pageSize: 10
     });
 
+    // Fisher-Yates: uniform random order, reshuffled once per page load —
+    // not per render, or rows would jump whenever filters/pagination change
+    const [shuffledData] = useState(() => {
+        const shuffled = [...data];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    });
+
     // Filter method for project area and license checkboxes
     const checkboxFilter = (row, id, filterValue) => {
         if (filterValue.length === 0) {
@@ -46,7 +57,7 @@ const ProjectTable = ({ columnFilters, showForm, onShowForm }) => {
     };
 
     // Auto-resolve local logos from src/logos in Vite
-    const localLogos = import.meta.glob('../../../src/logos/*.{webp,png,jpg,jpeg,svg}', { eager: true, query: '?url', import: 'default' });
+    const localLogos = import.meta.glob('../../../src/logos/*.{avif,webp,png,jpg,jpeg,svg}', { eager: true, query: '?url', import: 'default' });
     
     // Columns for React Table
     const columnHelper = createColumnHelper();
@@ -142,7 +153,7 @@ const ProjectTable = ({ columnFilters, showForm, onShowForm }) => {
 
     // const data = temp;
     const table = useReactTable({
-        data,
+        data: shuffledData,
         columns,
         state: {
             expanded,

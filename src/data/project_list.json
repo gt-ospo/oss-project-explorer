@@ -39,7 +39,7 @@
     ],
     "projectUrl": "https://mflowcode.github.io",
     "guidelinesUrl": "https://mflowcode.github.io",
-    "logo": "src/logos/MFC-logo.webp"
+    "logo": "src/logos/MFC-logo.avif"
   },
   {
     "projectName": "QCManyBody",
@@ -62,7 +62,7 @@
     ],
     "projectUrl": "https://github.com/MolSSI/QCManyBody",
     "guidelinesUrl": "",
-    "logo": "src/logos/QCMB-logo.webp"
+    "logo": "src/logos/QCMB-logo.avif"
   },
   {
     "projectName": "Vortex",
@@ -81,7 +81,7 @@
     ],
     "projectUrl": "https://vortex.cc.gatech.edu/",
     "guidelinesUrl": "https://github.com/vortexgpgpu/vortex/blob/master/docs/contributing.md",
-    "logo": "src/logos/vortex-logo.webp"
+    "logo": "src/logos/vortex-logo.avif"
   },
   {
     "projectName": "CuPBoP (Cuda for Parallelized and Broad-range Processors)",
@@ -122,7 +122,7 @@
     ],
     "projectUrl": "https://airavata.apache.org/",
     "guidelinesUrl": "",
-    "logo": "src/logos/airavata-logo.webp"
+    "logo": "src/logos/airavata-logo.avif"
   },
   {
     "projectName": "SLOSH-ML",
@@ -165,7 +165,7 @@
     ],
     "projectUrl": "https://sharc-lab.github.io/HLSFactory/docs/",
     "guidelinesUrl": "https://github.com/sharc-lab/hlsfactory",
-    "logo": "src/logos/hlsfactory-logo.webp"
+    "logo": "src/logos/hlsfactory-logo.avif"
   },
   {
     "projectName": "LightningSim",
@@ -189,7 +189,7 @@
     ],
     "projectUrl": "https://github.com/sharc-lab/LightningSim",
     "guidelinesUrl": "https://lightningsim-doc.readthedocs.io/en/latest/index.html",
-    "logo": "src/logos/lightningsim-logo.webp"
+    "logo": "src/logos/lightningsim-logo.avif"
   },
   {
     "projectName": "Fijjiontrack",
@@ -274,7 +274,7 @@
     ],
     "projectUrl": "https://github.com/Fedele-AI/AI_Fundamentals",
     "guidelinesUrl": "https://github.com/Fedele-AI/AI_Fundamentals?tab=coc-ov-file",
-    "logo": "src/logos/AF-logo.webp"
+    "logo": "src/logos/AF-logo.avif"
   },
   {
     "projectName": "ML Visualizer",
@@ -298,7 +298,7 @@
     ],
     "projectUrl": "https://mlvisualizer.org",
     "guidelinesUrl": "https://github.com/Fedele-AI/MLvisualizer?tab=coc-ov-file",
-    "logo": "src/logos/mlviz_logo.webp"
+    "logo": "src/logos/mlviz_logo.avif"
   },
   {
     "projectName": "Zap Studio",
@@ -316,6 +316,7 @@
       }
     ],
     "projectUrl": "https://www.zapstudio.dev/",
-    "guidelinesUrl": "https://github.com/zap-studio/monorepo?tab=contributing-ov-file"
+    "guidelinesUrl": "https://github.com/zap-studio/monorepo?tab=contributing-ov-file",
+    "logo": "src/logos/ZS-logo.avif"
   }
 ]
